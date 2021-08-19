@@ -10,6 +10,16 @@
 * 	Template Style 
 *
 * ======================================================= */
+
+.alert-fixed {
+    position:fixed;
+    top: 4px;
+    left: 0;
+    width: 100%;
+    z-index:9999;
+    border-radius:0
+}
+
 body {
   font-family: "Space Mono", Arial, serif;
   font-weight: 400;

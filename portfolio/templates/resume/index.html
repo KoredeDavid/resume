@@ -58,13 +58,10 @@
 	</head>
 	<body>
     {% for message in messages %}
-
-            <div class="alert alert-success alert-fixed">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-
-                {{ message }}
-            </div>
-
+        <div class="alert alert-success alert-fixed rounded">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
     {% endfor %}
 		
 	<div class="fh5co-loader"></div>
