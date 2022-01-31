@@ -1,0 +1,126 @@
+p{
+    font-size: 1.6rem;
+}
+
+small{
+    font-size: 11px;
+}
+
+.border {
+    border: 1px solid #dee2e6 !important;
+}
+
+
+.flex-space-between{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-center{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    color: #777;
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+
+.projects-list > .card{
+    margin: 20px 0;
+    transition: box-shadow 0.2s;
+}
+
+.projects-list > .card:hover{
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
+}
+
+.card-image{
+    border-radius: 5px;
+    width:100%;
+    height: inherit;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+
+.card-description{
+    background-color: var(--themeClrPrimary);
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 5px;
+    border-radius: 5px;
+    clip-path: polygon(89% 0, 100% 27%, 100% 100%, 0% 100%, 0 0, 0% 0%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.card-link-arrow-box{
+    background-color: var(--themeClrPrimary);
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    margin-left: 50px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.card-link-arrow-box:hover .fa-arrow-right{
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.fa-arrow-right{
+    color: #fff;
+    transition: transform 0.2s
+}
+
+.heading{
+    margin-bottom: 0;
+}
+
+
+
+@media (min-width: 576px) {
+    .card{
+        width: 45%;
+    }
+    .card > .card-description{
+
+    }
+
+}
+
+@media (min-width: 768px) {
+    .card {
+        width: 30%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 885px){
+    .card > .card-description{
+        width: 170px;
+    }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+
+}
