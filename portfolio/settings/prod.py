@@ -1,5 +1,7 @@
 from .base import *
 
+import cloudinary
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
@@ -8,10 +10,10 @@ DEBUG = os.environ.get('DEBUG', False) == 'True'
 
 ALLOWED_HOSTS = ['korededavid.herokuapp.com']
 
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware',)
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware', )
 
-# Media Cloudinary
-INSTALLED_APPS.extend(('cloudinary_storage', 'cloudinary',))
+# Updated Installed apps
+INSTALLED_APPS += ['cloudinary_storage', 'cloudinary', ]
 
 DATABASES = {
     'default': {
@@ -26,7 +28,12 @@ DATABASES = {
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Cloudinary stuff
+# cloudinary stuff
+cloudinary.config(
+    upload_prefix=os.environ.get('CLOUD_UPLOAD_PREFIX'),
+)
+
+# Cloudinary_storage stuff
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
     'API_KEY': os.environ.get('CLOUD_KEY'),
