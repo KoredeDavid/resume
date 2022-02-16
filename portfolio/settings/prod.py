@@ -36,15 +36,10 @@ CLOUDINARY_STORAGE = {
 }
 
 # cloudinary stuff
-# cloudinary.config(
-#     upload_prefix=os.environ.get('CLOUD_UPLOAD_PREFIX'),
-#     cloud_name=os.environ.get('CLOUD_NAME'),
-#     api_key=os.environ.get('CLOUD_KEY'),
-#     api_secret=os.environ.get('CLOUD_SECRET'),
-#     secure=True
-# )
-
-CLOUDINARY_URL = os.environ.get('CLOUD_UPLOAD_PREFIX')
+cloudinary.config(
+    upload_prefix=os.environ.get('CLOUD_UPLOAD_PREFIX'),
+    secure=True
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
