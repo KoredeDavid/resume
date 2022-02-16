@@ -28,17 +28,17 @@ DATABASES = {
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# cloudinary stuff
-cloudinary.config(
-    upload_prefix=os.environ.get('CLOUD_UPLOAD_PREFIX'),
-)
-
 # Cloudinary_storage stuff
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
     'API_KEY': os.environ.get('CLOUD_KEY'),
     'API_SECRET': os.environ.get('CLOUD_SECRET'),
 }
+
+# cloudinary stuff
+cloudinary.config(
+    upload_prefix=os.environ.get('CLOUD_UPLOAD_PREFIX'),
+)
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
