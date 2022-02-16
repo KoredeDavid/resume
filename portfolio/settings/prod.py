@@ -11,7 +11,7 @@ ALLOWED_HOSTS = ['korededavid.herokuapp.com']
 MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware',)
 
 # Media Cloudinary
-MIDDLEWARE.extend(('cloudinary', 'cloudinary_storage',))
+INSTALLED_APPS.extend(('cloudinary_storage', 'cloudinary',))
 
 DATABASES = {
     'default': {
