@@ -106,12 +106,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# Base url to serve media files
-MEDIA_URL = '/media/'
-
-# This tells django where to find our media files in the root directory
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-
 # Custom user model
 AUTH_USER_MODEL = 'account.CustomUser'
 
