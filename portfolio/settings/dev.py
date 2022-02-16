@@ -17,11 +17,6 @@ DATABASES = {
     }
 }
 
-# Base url to serve media files in dev
-MEDIA_URL = '/media/'
-
-# This tells django where to find our media files in the root directory in dev
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

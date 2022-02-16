@@ -102,6 +102,12 @@ STATIC_URL = '/static/'
 # This tells django where to find our static files in the root directory
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Base url to serve media files
+MEDIA_URL = '/media/'
+
+# This tells django where to find our media files in the root directory in dev
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
