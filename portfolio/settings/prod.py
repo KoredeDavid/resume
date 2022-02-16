@@ -28,9 +28,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Cloudinary stuff
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('CLOUD_NAME', None),
-    'API_KEY': os.environ.get('CLOUD_KEY', None),
-    'API_SECRET': os.environ.get('CLOUD_SECRET', None),
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUD_KEY'),
+    'API_SECRET': os.environ.get('CLOUD_SECRET'),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -39,7 +39,6 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = os.environ.get('EMAIL_PORT')
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
 EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
