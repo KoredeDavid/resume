@@ -44,6 +44,8 @@ CLOUDINARY_STORAGE = {
 #     secure=True
 # )
 
+CLOUDINARY_URL = os.environ.get('CLOUD_UPLOAD_PREFIX')
+
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
