@@ -154,6 +154,12 @@ contactForm.addEventListener('submit', function (e){
     formButton.disabled = true;
     formButton.textContent = 'Sending...'
 
+    // Disable Form
+    var formElements = contactForm.elements;
+    for (var i = 0, len = formElements.length; i < len; ++i) {
+        formElements[i].readOnly = true;
+    }
+
     // Clears messages
     document.querySelector('.message_sent').classList.remove(isVisible)
     const clearErrors = document.querySelectorAll('.error_message')
@@ -212,11 +218,24 @@ contactForm.addEventListener('submit', function (e){
             // Enable form button
             formButton.disabled = false;
             formButton.textContent = 'SUBMIT'
+
+            // Enable Form
+            var formElements = contactForm.elements;
+            for (var i = 0, len = formElements.length; i < len; ++i) {
+                formElements[i].readOnly = false;
+            }
         })
         .catch((error) => {
             // Enable form button
             formButton.disabled = false;
             formButton.textContent = 'Unable to connect!!! Try Again'
+
+            // Enable Form
+            var formElements = contactForm.elements;
+            for (var i = 0, len = formElements.length; i < len; ++i) {
+                formElements[i].readOnly = false;
+            }
+
             console.error('Error:', error);
         });
 

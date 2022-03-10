@@ -29,7 +29,7 @@ def send_email(request):
         if serializer.is_valid():
             data.update(serializer.data)
             data['status'] = 'success'
-            subject = f"{serializer.validated_data['name']}: KoredeDavid Portfolio"
+            subject = f"{serializer.validated_data['name']}: {serializer.validated_data['from_email']} Portfolio"
             content = serializer.validated_data['content']
             from_email = serializer.validated_data['from_email']
             send_mail(subject, content, from_email, receiver)
@@ -44,7 +44,7 @@ def contact(request, platform):
         'github': 'https://github.com/KoredeDavid',
         'twitter': 'https://twitter.com/KingKoredeDavid',
         'linkedin': 'https://linkedIn.com/in/KoredeDavid',
-        'whatsapp': ' https://wa.me/+2348124973682',
+        'whatsapp': 'https://wa.me/+2348124973682',
     }
 
     platform = platforms.get(platform)
