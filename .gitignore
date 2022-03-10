@@ -108,6 +108,7 @@ celerybeat.pid
 .venv
 env/
 venv/
+portfolio_env
 ENV/
 env.bak/
 venv.bak/
@@ -131,4 +132,4 @@ dmypy.json
 .pyre/
 
 # Dev files
-portfolio/media/resume/
+portfolio/media/resume

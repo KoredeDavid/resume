@@ -6,7 +6,7 @@ const isVisible = "is-visible";
 var distanceToTopFromModal
 const logoImageSource = document.querySelector(".header__logo-img").src
 // Sets background image of the modal content
-document.getElementById("drag-modal1").style.background =  `whitesmoke url('${logoImageSource}') no-repeat center center fixed`
+document.getElementById("drag-modal1").style.background =  `whitesmoke url('${logoImageSource}') no-repeat 50% 50% fixed`
 
 // Open Modal
 for(const el of openEls) {
@@ -140,3 +140,86 @@ function drag(e) {
 function setTranslate(xPos, yPos, el) {
     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 }
+
+
+// Fetch Api
+contactForm = document.querySelector('.contact__form')
+contactEndPoint = contactForm.action
+
+contactForm.addEventListener('submit', function (e){
+    e.preventDefault()
+
+    // Disable form button
+    var formButton = document.querySelector(".contact__btn")
+    formButton.disabled = true;
+    formButton.textContent = 'Sending...'
+
+    // Clears messages
+    document.querySelector('.message_sent').classList.remove(isVisible)
+    const clearErrors = document.querySelectorAll('.error_message')
+    for (const el of clearErrors) {
+        // Clears errors
+        el.replaceChildren()
+    }
+
+    // Converts Contacts form inputs to JSON
+    var contactFormObject = {}
+    const formData = new FormData(contactForm)
+
+    formData.forEach(function(value, key){
+        // Appends each form input into contactFormObject as object
+        contactFormObject[key] = value;
+    });
+
+    var contactFormData  = JSON.stringify(contactFormObject);
+
+    // Calling form API
+    fetch(contactEndPoint, {
+        method: 'POST', // or 'PUT'
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken' : Cookies.get('csrftoken')
+        },
+        body: contactFormData
+    })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            if (data.status === 'error'){
+                console.log('error:', data);
+                // Deletes status error object in json
+                delete data.status;
+                console.log('error:', data);
+                // Looping through json data
+                Object.entries(data).forEach((entry) => {
+                   const [invalidField, invalidFieldErrors] = entry
+                    // Loop through error list in invalidFieldErrors
+                    Array.from(invalidFieldErrors).forEach((fieldErrorMessage) => {
+                        const field  = document.getElementById(invalidField)
+                        const errorMessageDiv = field.nextElementSibling
+                        const small = document.createElement('small')
+                        small.textContent = fieldErrorMessage
+                        errorMessageDiv.appendChild(small)
+                    });
+                });
+            }
+            else {
+                // Resets contact form
+                contactForm.reset()
+                document.querySelector('.message_sent').classList.add(isVisible)
+            }
+            // Enable form button
+            formButton.disabled = false;
+            formButton.textContent = 'SUBMIT'
+        })
+        .catch((error) => {
+            // Enable form button
+            formButton.disabled = false;
+            formButton.textContent = 'Unable to connect!!! Try Again'
+            console.error('Error:', error);
+        });
+
+    }, false
+)
+
