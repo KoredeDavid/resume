@@ -59,6 +59,9 @@ ADMINS = [
 
 MANAGERS = ADMINS
 
+# Redirects 'http' to 'https'
+SECURE_SSL_REDIRECT = True
+
 import dj_database_url
 
 prod_db = dj_database_url.config(conn_max_age=500)
