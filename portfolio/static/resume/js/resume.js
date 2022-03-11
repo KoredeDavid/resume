@@ -165,7 +165,9 @@ contactForm.addEventListener('submit', function (e){
     const clearErrors = document.querySelectorAll('.error_message')
     for (const el of clearErrors) {
         // Clears errors
-        el.replaceChildren()
+        while (el.hasChildNodes()) {
+            el.removeChild(el.lastChild)
+        }
     }
 
     // Converts Contacts form inputs to JSON
