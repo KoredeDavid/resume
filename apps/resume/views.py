@@ -31,7 +31,7 @@ def send_email(request):
             data['status'] = 'success'
             subject = f"{serializer.validated_data['name']}: {serializer.validated_data['from_email']} Portfolio"
             content = serializer.validated_data['content']
-            from_email = serializer.validated_data['from_email']
+            from_email = 'KoredeDavidPortfolio@korededavid.com'
             send_mail(subject, content, from_email, receiver)
             return Response(data, status=status.HTTP_202_ACCEPTED)
         data.update(serializer.errors)
