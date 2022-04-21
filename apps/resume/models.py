@@ -12,3 +12,10 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+
+class Skill(models.Model):
+    name = models.CharField(max_length=25, unique=True)
+    rank = models.PositiveIntegerField(unique=True)
+
+    def __str__(self):
+        return self.name

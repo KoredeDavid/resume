@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from apps.resume.models import Project
+from apps.resume.models import Project, Skill
 
 # Create your views here.
 from apps.resume.serializers import MailSerializer
@@ -14,8 +14,11 @@ from apps.resume.serializers import MailSerializer
 
 def index(request):
     projects = Project.objects.all()
+    skills = Skill.objects.all().order_by('rank')
+
     context = {
-        'projects': projects
+        'projects': projects,
+        'skills': skills
     }
     return render(request, 'resume/index.html', context)
 
