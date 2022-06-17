@@ -63,8 +63,8 @@ MANAGERS = ADMINS
 SECURE_SSL_REDIRECT = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://iamadesua.netlify.com",
-    "http://iamadesua.netlify.com",
+    "https://iamadesua.netlify.app",
+    "http://iamadesua.netlify.app",
 ]
 
 import dj_database_url
