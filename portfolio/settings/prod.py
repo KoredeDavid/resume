@@ -62,6 +62,11 @@ MANAGERS = ADMINS
 # Redirects 'http' to 'https'
 SECURE_SSL_REDIRECT = True
 
+CORS_ALLOWED_ORIGINS = [
+    "https://iamadesua.netlify.com",
+    "http://iamadesua.netlify.com",
+]
+
 import dj_database_url
 
 prod_db = dj_database_url.config(conn_max_age=500)
