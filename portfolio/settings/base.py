@@ -103,7 +103,7 @@ DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 # Base url to serve static files
 STATIC_URL = '/static/'
 
-# This tells django where to find our static files in the root directory
+# This tells django where to find our static files in production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Base url to serve media files
